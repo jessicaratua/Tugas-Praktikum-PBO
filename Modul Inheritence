@@ -1,0 +1,212 @@
+// JESSICA RATU AGHNIA
+// 212410101039
+// TUGAS 1 PRAKTIKUM PBO B
+
+
+
+using Ns1;
+using System.Security.Cryptography.X509Certificates;
+namespace MainNs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Ns1.Laptop laptop1 = new Vivobook();
+            laptop1.vga = new Ns3.Nvidia();
+            laptop1.processor = new Ns2.Corel5();
+            //laptop1.Ngoding(); error
+
+            Ns1.Laptop laptop2 = new IdeaPad();
+            laptop2.vga = new Ns3.AMD();
+            laptop2.processor = new Ns2.Ryzen();
+            laptop2.LaptopDinyalakan();
+            laptop2.LaptopDimatikan();
+
+            Ns1.Predator predator = new Predator();
+            predator.vga = new Ns3.AMD();
+            predator.processor = new Ns2.Corel7();
+            predator.BermainGame();
+
+            //Ns1.ACER acer = new Predator(); error
+            //acer.BermainGame(); error
+        }
+    }
+}
+
+namespace Ns1
+{
+    class Laptop
+    {
+        public string merk;
+        public string tipe;
+        public Ns3.Vga vga;
+        public Ns2.Processor processor;
+
+        public void LaptopDinyalakan()
+        {
+            Console.WriteLine($"Laptop {merk} {tipe} menyala");
+        }
+
+        public void LaptopDimatikan()
+        {
+            Console.WriteLine($"Laptop {merk} {tipe} mati");
+        }
+    }
+    class ASUS : Laptop
+    {
+        public ASUS()
+        {
+            merk = "ASUS";
+        }
+    }
+    class ACER : Laptop
+    {
+        public ACER()
+        {
+            merk = "ACER";
+        }
+    }
+    class Lenovo : Laptop
+    {
+        public Lenovo()
+        {
+            merk = "Lenovo";
+        }
+    }
+
+    class ROG : ASUS
+    {
+        public ROG()
+        {
+            tipe = "ROG";
+        }
+    }
+    class Vivobook : ASUS
+    {
+        public Vivobook()
+        {
+            tipe = "Vivobook";
+        }
+        public void Ngoding()
+        {
+            Console.WriteLine("Ctak Ctak Ctak, error lagi!!");
+        }
+    }
+
+    class Swift : ACER
+    {
+        public Swift()
+        {
+            tipe = "Swift";
+        }
+    }
+    class Predator : ACER
+    {
+        public Predator()
+        {
+            tipe = "Predator";
+        }
+        public void BermainGame()
+        {
+            Console.WriteLine($"Laptop {merk} {tipe} sedang memainkan game");
+        }
+    }
+
+    class IdeaPad : Lenovo
+    {
+        public IdeaPad()
+        {
+            tipe = "IdeaPad";
+        }
+    }
+    class Legion : Lenovo
+    {
+        public Legion()
+        {
+            tipe = "Legion";
+        }
+    }
+}
+
+namespace Ns2
+{
+    class Processor
+    {
+        public string merk;
+        public string tipe;
+    }
+    class Intel : Processor
+    {
+        public Intel()
+        {
+            merk = "Intel";
+        }
+    }
+    class AMD : Processor
+    {
+        public AMD()
+        {
+            merk = "AMD";
+        }
+    }
+
+    class Corel3 : Intel
+    {
+        public Corel3()
+        {
+            tipe = "Corel i3";
+        }
+    }
+    class Corel5 : Intel
+    {
+        public Corel5()
+        {
+            tipe = "Corel i5";
+        }
+    }
+    class Corel7 : Intel
+    {
+        public Corel7()
+        {
+            tipe = "Corel i7";
+        }
+    }
+
+    class Ryzen : AMD
+    {
+        public Ryzen()
+        {
+            tipe = "RAYZEN";
+        }
+    }
+    class Athlon : AMD
+    {
+        public Athlon()
+        {
+            tipe = "ATHLON";
+        }
+    }
+}
+
+namespace Ns3
+{
+    class Vga
+    {
+        public string merk;
+    }
+    class Nvidia : Vga
+    {
+        public Nvidia()
+        {
+            merk = "Nvidia";
+        }
+    }
+    class AMD : Vga
+    {
+        public AMD()
+        {
+            merk = "AMD";
+        }
+    }
+}
